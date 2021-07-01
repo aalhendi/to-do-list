@@ -16,6 +16,15 @@ class TaskStore {
       console.error("fetchTasks:", error);
     }
   };
+
+  addTask = async (newTask) => {
+    try {
+      const res = await axios.post("http://localhost:8000/tasks", newTask);
+      this.tasks.push(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 }
 
 const taskStore = new TaskStore();
