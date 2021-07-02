@@ -34,6 +34,7 @@ class TaskStore {
       );
       const task = this.tasks.find((task) => task.id === updateTask.id);
       task.status = updateTask.status;
+      task.priority = updateTask.priority;
     } catch (error) {
       console.error(error);
     }

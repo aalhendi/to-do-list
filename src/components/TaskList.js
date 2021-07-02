@@ -20,7 +20,6 @@ const TaskList = () => {
 
   const handleChange = (e) => {
     setTask({ ...task, [e.target.name]: e.target.value });
-    console.log(task);
   };
 
   const handleSubmit = (e) => {
@@ -36,6 +35,12 @@ const TaskList = () => {
           placeholder="Name of your task"
           onChange={handleChange}
           name="name"
+        />
+        <input
+          placeholder="Priority of your task"
+          onChange={handleChange}
+          name="priority"
+          defaultValue="low"
         />
         <button type="submit">Add Task</button>
       </form>
