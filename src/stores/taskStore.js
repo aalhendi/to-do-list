@@ -25,6 +25,18 @@ class TaskStore {
       console.error(error);
     }
   };
+  updateTask = async (updateTask) => {
+    try {
+      await axios.put(
+        `http://localhost:8000/task/${updateTask.id}`,
+        updateTask
+      );
+      const task = this.task.find((task) => task.id === updateTask.id);
+      task.status = updateTask.status;
+    } catch (error) {
+      console.error(error);
+    }
+  };
 }
 
 const taskStore = new TaskStore();
