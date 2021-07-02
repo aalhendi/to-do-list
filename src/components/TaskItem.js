@@ -11,7 +11,7 @@ const TaskItem = (props) => {
       <h1>{task.name + " " + task.priority}</h1>
       <UpdateButton task={task} />
       <DeleteButton task={task} />
-      <PriorityButton task={task} />
+      {task.status ? null : <PriorityButton task={task} />}
     </div>
   );
 };
