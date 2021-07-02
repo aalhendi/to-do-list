@@ -1,3 +1,4 @@
+import DeleteButton from "./Buttons/DeleteButton";
 import UpdateButton from "./Buttons/UpdateButton";
 
 const TaskItem = (props) => {
@@ -7,6 +8,7 @@ const TaskItem = (props) => {
     <div>
       <h1>{task.name}</h1>
       <UpdateButton task={task} />
+      <DeleteButton task={task} />
     </div>
   );
 };

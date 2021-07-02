@@ -38,6 +38,15 @@ class TaskStore {
       console.error(error);
     }
   };
+
+  deleteTask = async (taskId) => {
+    try {
+      await axios.delete(`http://localhost:8000/tasks/${taskId}`);
+      this.tasks = this.tasks.filter((task) => task.id !== taskId);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 }
 
 const taskStore = new TaskStore();
