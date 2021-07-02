@@ -4,9 +4,13 @@ import taskStore from "../stores/taskStore";
 import TaskItem from "./TaskItem";
 
 const TaskList = () => {
-  const taskList = taskStore.tasks.map((task) => (
-    <TaskItem task={task} key={task.id} />
-  ));
+  const taskList = taskStore.tasks
+    .filter((task) => task.status === false)
+    .map((task) => <TaskItem task={task} key={task.id} />);
+
+  const doneTaskList = taskStore.tasks
+    .filter((task) => task.status === true)
+    .map((task) => <TaskItem task={task} key={task.id} />);
 
   const [task, setTask] = useState({
     name: "",
@@ -35,6 +39,7 @@ const TaskList = () => {
         />
         <button type="submit">Add Task</button>
       </form>
+      {doneTaskList}
     </div>
   );
 };

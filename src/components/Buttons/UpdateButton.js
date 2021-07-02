@@ -1,15 +1,15 @@
-const UpdateButton = (props) => {
-  const [task, setTask] = useState({
-    ...props.task,
-  });
+import taskStore from "../../stores/taskStore";
 
+const UpdateButton = (props) => {
   const toggleStatus = () => {
-    setTask({ ...props.task, status: !props.task.status });
+    taskStore.updateTask({ ...props.task, status: !props.task.status });
   };
 
   return (
     <div>
-      <button onClick={toggleStatus}>Done</button>
+      <button onClick={toggleStatus}>
+        {props.task.status ? "Undo" : "Done"}
+      </button>
     </div>
   );
 };
