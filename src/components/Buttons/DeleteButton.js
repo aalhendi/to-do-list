@@ -1,4 +1,5 @@
 import taskStore from "../../stores/taskStore";
+import Button from "react-bootstrap/Button";
 
 const DeleteButton = (props) => {
   const handleDelete = () => {
@@ -6,8 +7,10 @@ const DeleteButton = (props) => {
   };
 
   return (
-    <div>
-      <button onClick={handleDelete}>Delete</button>
+    <div className="DeleteButton">
+      <Button variant="danger" onClick={handleDelete}>
+        Delete
+      </Button>
     </div>
   );
 };
