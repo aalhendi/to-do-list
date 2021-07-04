@@ -1,5 +1,6 @@
 import { useState } from "react";
 import taskStore from "../../stores/taskStore";
+import "../../App.css";
 
 const PriorityButton = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,41 +10,44 @@ const PriorityButton = (props) => {
   };
 
   const changePriority = (value) => {
-    console.log({ ...props.task });
     taskStore.updateTask({ ...props.task, priority: value });
-    console.log({ ...props.task, priority: value });
   };
 
   return (
-    <div className="dropdown" onClick={toggleOpen}>
-      <button
-        className="btn btn-secondary dropdown-toggle"
-        type="button"
-        id="dropdownMenuButton"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-      >
-        Priority
-      </button>
-      <div
-        className={`dropdown-menu${isOpen ? " show" : ""}`}
-        aria-labelledby="dropdownMenuButton"
-      >
-        <button className="dropdown-item" onClick={() => changePriority("low")}>
-          Low
-        </button>
+    <div className="PiorityButton">
+      <div className="dropdown" onClick={toggleOpen}>
         <button
-          className="dropdown-item"
-          onClick={() => changePriority("medium")}
+          className="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
         >
-          Medium
+          Priority
         </button>
-        <button
-          className="dropdown-item"
-          onClick={() => changePriority("High")}
+        <div
+          className={`dropdown-menu${isOpen ? " show" : ""}`}
+          aria-labelledby="dropdownMenuButton"
         >
-          High
-        </button>
+          <button
+            className="dropdown-item"
+            onClick={() => changePriority("low")}
+          >
+            Low
+          </button>
+          <button
+            className="dropdown-item"
+            onClick={() => changePriority("medium")}
+          >
+            Medium
+          </button>
+          <button
+            className="dropdown-item"
+            onClick={() => changePriority("high")}
+          >
+            High
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import taskStore from "../../stores/taskStore";
+import Button from "react-bootstrap/Button";
 
 const UpdateButton = (props) => {
   const toggleStatus = () => {
@@ -6,10 +7,10 @@ const UpdateButton = (props) => {
   };
 
   return (
-    <div>
-      <button onClick={toggleStatus}>
+    <div className="UpdateBtn">
+      <Button variant="primary" onClick={toggleStatus}>
         {props.task.status ? "Undo" : "Done"}
-      </button>
+      </Button>
     </div>
   );
 };
