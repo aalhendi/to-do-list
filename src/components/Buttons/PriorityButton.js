@@ -10,9 +10,7 @@ const PriorityButton = (props) => {
   };
 
   const changePriority = (value) => {
-    console.log({ ...props.task });
     taskStore.updateTask({ ...props.task, priority: value });
-    console.log({ ...props.task, priority: value });
   };
 
   return (
@@ -45,7 +43,7 @@ const PriorityButton = (props) => {
           </button>
           <button
             className="dropdown-item"
-            onClick={() => changePriority("High")}
+            onClick={() => changePriority("high")}
           >
             High
           </button>

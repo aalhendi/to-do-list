@@ -1,4 +1,3 @@
-//import { useState } from "react";
 import { observer } from "mobx-react";
 import taskStore from "../stores/taskStore";
 import TaskItem from "./TaskItem";
@@ -41,25 +40,12 @@ const TaskList = () => {
   return (
     <div>
       <TaskModal />
-      {/* <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Name of your task"
-          onChange={handleChange}
-          name="name"
-        />
-        <input
-          placeholder="Priority of your task"
-          onChange={handleChange}
-          name="priority"
-          defaultValue="low"
-        />
-        <button type="submit">Add Task</button>
-      </form> */}
 
       <div className="list">
         <ListGroup as="ul" className="TaskList">
           {taskList}
         </ListGroup>
+
         <ListGroup as="ul" className="DoneTaskList">
           {doneTaskList}
         </ListGroup>

@@ -23,6 +23,7 @@ const TaskModal = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     taskStore.addTask(task);
+    toggleShow();
   };
 
   return (
@@ -31,33 +32,34 @@ const TaskModal = () => {
         Add New Task
       </Button>
 
-      <Modal show={show} onHide={toggleShow} onSubmit={handleSubmit}>
+      <Modal show={show} onHide={toggleShow}>
         <Modal.Header closeButton>
           <Modal.Title>Add a new task</Modal.Title>
         </Modal.Header>
+        <form onSubmit={handleSubmit}>
+          <Modal.Body>
+            <input
+              placeholder="Name of your task"
+              onChange={handleChange}
+              name="name"
+            />
+            <input
+              placeholder="Priority of your task"
+              onChange={handleChange}
+              name="priority"
+              defaultValue="low"
+            />
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={toggleShow}>
+              Close
+            </Button>
 
-        <Modal.Body>
-          <input
-            placeholder="Name of your task"
-            onChange={handleChange}
-            name="name"
-          />
-          <input
-            placeholder="Priority of your task"
-            onChange={handleChange}
-            name="priority"
-            defaultValue="low"
-          />
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={toggleShow}>
-            Close
-          </Button>
-
-          <Button type="submit" variant="primary" onClick={toggleShow}>
-            Add Task
-          </Button>
-        </Modal.Footer>
+            <Button type="submit" variant="primary">
+              Add Task
+            </Button>
+          </Modal.Footer>
+        </form>
       </Modal>
     </div>
   );
