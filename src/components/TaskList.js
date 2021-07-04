@@ -43,10 +43,22 @@ const TaskList = () => {
 
       <div className="list">
         <ListGroup as="ul" className="TaskList">
+          <ListGroup.Item
+            active
+            style={{ textAlign: "center", fontSize: "2em" }}
+          >
+            Unfinished Tasks
+          </ListGroup.Item>
           {taskList}
         </ListGroup>
 
         <ListGroup as="ul" className="DoneTaskList">
+          <ListGroup.Item
+            active
+            style={{ textAlign: "center", fontSize: "2em" }}
+          >
+            Finished Tasks
+          </ListGroup.Item>
           {doneTaskList}
         </ListGroup>
       </div>

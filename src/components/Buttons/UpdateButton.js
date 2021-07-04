@@ -8,7 +8,10 @@ const UpdateButton = (props) => {
 
   return (
     <div className="UpdateBtn">
-      <Button variant="primary" onClick={toggleStatus}>
+      <Button
+        variant={props.task.status ? "warning" : "success"}
+        onClick={toggleStatus}
+      >
         {props.task.status ? "Undo" : "Done"}
       </Button>
     </div>

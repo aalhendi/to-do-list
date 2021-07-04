@@ -28,12 +28,16 @@ const TaskModal = () => {
 
   return (
     <div className="Modal">
-      <Button variant="primary" onClick={toggleShow}>
+      <Button
+        variant="outline-dark"
+        onClick={toggleShow}
+        style={{ fontWeight: "bold" }}
+      >
         Add New Task
       </Button>
 
       <Modal show={show} onHide={toggleShow}>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title>Add a new task</Modal.Title>
         </Modal.Header>
         <form onSubmit={handleSubmit}>
@@ -51,7 +55,7 @@ const TaskModal = () => {
             />
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={toggleShow}>
+            <Button variant="danger" onClick={toggleShow}>
               Close
             </Button>
 
